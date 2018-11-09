@@ -1,0 +1,24 @@
+/* All */
+figcaption{
+    font-size: .02em;
+}
+body {
+    background-color: #00498e;
+    color: white;
+    font-family:'New Century';
+}
+/* Nav Menu */
+nav li{
+    display: inline;
+    list-style-type: none;
+    width: 5em;
+    padding: 2em;
+}
+
+nav {
+    background-color: #ffffff;
+}
+
+*{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", serif;
+}
