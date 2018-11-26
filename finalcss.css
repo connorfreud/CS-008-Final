@@ -13,12 +13,27 @@ nav li{
     list-style-type: none;
     width: 5em;
     padding: 2em;
+    
 }
 
 nav {
     background-color: #ffffff;
+    text-align: center;
 }
 
 *{
     font-family: "Lucida Sans Unicode", "Lucida Grande", serif;
 }
+
+header h1{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+   
+}
+
+#pats_header img{
+    align: center;
+}
+
+
