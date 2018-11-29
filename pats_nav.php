@@ -53,11 +53,11 @@
         print '</li>';
         
          print '<li class="';
-        if($path_parts['filename']=='pats_poll'){
+        if($path_parts['filename']=='pats_history'){
             print 'activePage';
         }
         print '">';
-        print '<a href="pats_poll.php">Poll</a>';
+        print '<a href="pats_history.php">History</a>';
         print '</li>';
         ?>
     </ol>
