@@ -32,8 +32,26 @@ header h1{
    
 }
 
-#pats_header img{
-    align: center;
+.Homephoto {
+    width: 70%;
 }
 
+.Homephoto img{
+    max-width: 100%;
+}
 
+.Redshirt {
+    width: 20%
+}
+
+.Blueshirt {
+    width: 20%
+}
+
+.Greyshirt {
+    width: 20%
+}
+
+.CustomJersey {
+   width: 50%
+}
