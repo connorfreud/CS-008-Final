@@ -3,15 +3,15 @@ include ('pats_top.php');
 ?>
 <!-- Pictures of stuff to buy -->
 <figure>
-    <img alt="Red Shirt" src="images/Red.jpg">
+    <img alt="Red Shirt" src="images/Red.jpg" class="Redshirt">
             <figcaption>source: https://d1wid1q8ctfefm.cloudfront.net/spree/images/attachments/000/005/218/original/FanaticsTBSlubLSTop.jpg?1536786193</figcaption>
 </figure>
 <figure>
-    <img alt="Navy Blue T Shirt" src="images/NavyBlue.jpg">
+    <img alt="Navy Blue T Shirt" src="images/NavyBlue.jpg" class="Blueshirt">
             <figcaption>source: https://d1wid1q8ctfefm.cloudfront.net/spree/images/attachments/000/004/566/original/NikeCottonTeeNavy.jpg?1526653863</figcaption>
 </figure>
 <figure>
-    <img alt="Grey T Shirt" src="images/Grey.jpg">
+    <img alt="Grey T Shirt" src="images/Grey.jpg" class="Greyshirt">
             <figcaption>source: https://d1wid1q8ctfefm.cloudfront.net/spree/images/attachments/000/004/722/original/NikeSlubTeeGray.jpg?1530886182</figcaption>
 </figure>
 
@@ -20,11 +20,15 @@ include ('pats_top.php');
 $size = 'small';
 $color = '';
 $quantity = '';
+$firstName = '';
+$lastName = '';
 $email = '';
 
 $sizeERROR = false;
 $colorERROR = false;
 $quantityERROR = false;
+$firstNameERROR = false;
+$lastNameERROR = false;
 $emailERROR = false;
 
 $errorMsg = array();
@@ -51,7 +55,9 @@ if(isset($_POST["btnSubmit"])) {
 
 $size = htmlentities($_POST['lstSize'], ENT_QUOTES, 'UTF-8');
 $color = htmlentities($_POST['radColor'], ENT_QUOTES, 'UTF-8');
-$quantity = htmlentities($_POST['txtQuantity'], ENT_QUOTES, 'UTF-8');
+$quantity = htmlentities($_POST['chkQuantity'], ENT_QUOTES, 'UTF-8');
+$firstName = htmlentities($_POST['txtFirstName'], ENT_QUOTES, 'UTF-8');
+$lastName = htmlentities($_POST['txtlastName'], ENT_QUOTES, 'UTF-8');
 ?>
 
 
@@ -67,12 +73,25 @@ $quantity = htmlentities($_POST['txtQuantity'], ENT_QUOTES, 'UTF-8');
     }
     
     if ($quantity== ''){
-        $errorMsg[] = 'Please enter the quantity';
-        $quantityERROR = true;
-    } elseif (!is_int($quantity)) {
-        $errorMsg[] = 'Enter a number';
+        $errorMsg[] = 'Please choose the quantity';
         $quantityERROR = true;
     }    
+    if ($firstName == "") {
+        $errorMsg[] = "Please enter your first name";
+        $firstNameERROR = true;
+    } elseif (!verifyAlphaNum($firstName)) {
+        $errorMsg[] = "Your first name has extra characters";
+        $firstNameERROR = true;
+    }
+    
+    if ($lastName == "") {
+        $errorMsg[] = "Please enter your first name";
+        $lastNameERROR = true;
+    } elseif (!verifyAlphaNum($lastName)) {
+        $errorMsg[] = "Your first name has extra characters";
+        $lastNameERROR = true;
+    }
+    
     if ($email == ""){
         $errorMsg[] = 'Please enter your email address';
         $emailERROR = true;
@@ -97,6 +116,9 @@ if (!$errorMsg){
     $dataRecord[] = $size;
     $dataRecord[] = $color;
     $dataRecord[] = $quantity;
+    $dataRecord[] = $firstName;
+    $dataRecord[] = $lastName;
+    $dataRecord[] = $email;
     
     //  setup csv file
     $myFolder = 'data/';
@@ -199,24 +221,86 @@ $message = '<h2> Your order confirmation </h2>';
 
 
                              </fieldset>
+                        
+                                    <fieldset class="checkbox ">
+                                <legend>Select a quantity</legend>
 
+                                <p>
+                                    <label class="check-field">
+                                        <input  checked                                 id="chk1"
+                                            name="chk1"
+                                            tabindex="200"
+                                            type="checkbox"
+                                            value="1"> 1</label>
+                                </p>
+
+                                <p>
+                                    <label class="check-field">
+                                        <input                                 id="chk2" 
+                                            name="chk2" 
+                                            tabindex="201"
+                                            type="checkbox"
+                                            value="2"> 2</label>
+                                </p>
+                                
+                                <p>
+                                    <label class="check-field">
+                                        <input                                 id="chk3" 
+                                            name="chk3" 
+                                            tabindex="202"
+                                            type="checkbox"
+                                            value="3"> 3</label>
+                                </p>
+                                
+                                <p>
+                                    <label class="check-field">
+                                        <input                                 id="chk4" 
+                                            name="chk4" 
+                                            tabindex="203"
+                                            type="checkbox"
+                                            value="4"> 4</label>
+                                </p>
+                            </fieldset>
+                        
+                        
+                        <fieldset class = text-field>
                              <p>
-                                 <label class ='required' for='txtQuantity'>Quantity</label>
-                                 <input autofocus
-                                        <?php if ($quantityERROR) print 'class="mistake"'; ?>
-                                        id="txtQuantity"
-                                        maxlength="3"
-                                        name="txtQuantity"
-                                        onfocus="this.select()"
-                                        placeholder="Enter the quantity"
-                                        tabindex="300"
-                                        type="text"
-                                        value="<?php print $quantity; ?>"
-                                        >
+                                 <label class='required' for="txtfirstName">First name</label>
+                                 <input
+                                     <?php if ($emailERROR) print 'class="mistake"'; ?>
+                                     id="txtfirstName"
+                                     maxlength="50"
+                                     name="txtfirstName"
+                                     onfocus="this.select()"
+                                     placeholder="Enter your first name"
+                                     tabindex="300"
+                                     type="text"
+                                     value="<?php print $firstName; ?>"
+                                   >
                              </p>
-
+                        </fieldset>
+                        
+                        <fieldset class = text-field>
                              <p>
-                                 <label class='required' for="txtEmail">Email</label>
+                                 <label class='required' for="txtlastName">Last name</label>
+                                 <input
+                                     <?php if ($lastNameERROR) print 'class="mistake"'; ?>
+                                     id="txtlastName"
+                                     maxlength="50"
+                                     name="txtlastName"
+                                     onfocus="this.select()"
+                                     placeholder="Enter your last name"
+                                     tabindex="301"
+                                     type="text"
+                                     value="<?php print $lastName; ?>"
+                                   >
+                             </p>
+                        </fieldset>
+
+
+                        <fieldset class = text-field>
+                             <p>
+                                 <label class='required' for="txtEmail">Email address</label>
                                  <input
                                      <?php if ($emailERROR) print 'class="mistake"'; ?>
                                      id="txtEmail"
@@ -229,7 +313,10 @@ $message = '<h2> Your order confirmation </h2>';
                                      value="<?php print $email; ?>"
                                    >
                              </p>
-                             <fieldset class="buttons">
+                        </fieldset>
+                        
+                        
+                         <fieldset class="buttons">
                              <input class="button" id="btnSubmit" name="btnSubmit" tabindex="500" type="submit" value="Submit Order" >
                          </fieldset>
                     </form>
