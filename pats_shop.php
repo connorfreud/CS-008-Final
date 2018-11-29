@@ -149,15 +149,15 @@ $message = '<h2> Your order confirmation </h2>';
 
 <main>
     <article>
-                    <form action="<?php print $phpSelf; ?>"
+                    <form action="<?php print $phpSelf;?>"
                            id="frmOrder"
                            method="post">
 
                          <fieldset class='order'>
                              <legend>Order Information</legend>
                              <fieldset class="listbox <?php if ($sizeERROR) print 'mistake';?>">
-                                 <p>
                                  <legend> Select a Size </legend>
+                                 <p>
                                  <select id="lstSize"
                                          name="lstSize"
                                          tabindex="100">
