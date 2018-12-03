@@ -25,8 +25,8 @@ nav {
     color: white;
     
 }
-nav li a:hover{
-    background-color: transparent;
+nav a:hover{
+    background-color: #c7f9f9;
 }
 p {
     font-family: "Lucida Sans Unicode", "Lucida Grande", serif;
@@ -93,4 +93,8 @@ table tr td{
 
 #History {
     opacity: .6;
+}
+
+#roster tr:hover{
+    background-color: #E60000;
 }
