@@ -37,11 +37,11 @@
         print '</li>';  
         
         print '<li class="';
-        if($path_parts['filename']=='pats_custom'){
+        if($path_parts['filename']=='pats_customize'){
             print 'activePage';
         }
         print '">';
-        print '<a href="pats_custom.php">Custom</a>';
+        print '<a href="pats_customize.php">Custom</a>';
         print '</li>';
         
         print '<li class="';
