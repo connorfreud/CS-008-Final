@@ -19,8 +19,12 @@ nav li{
 nav {
     background-color: #ffffff;
     text-align: center;
+    font-weight: bolder;
+    
 }
-
+nav a:hover{
+    background-color: transparent;
+}
 *{
     font-family: "Lucida Sans Unicode", "Lucida Grande", serif;
 }
@@ -54,4 +58,11 @@ header h1{
 
 .CustomJersey {
    width: 50%
+}
+
+table tr td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: .2em;
+    
 }
