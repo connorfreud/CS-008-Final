@@ -7,8 +7,9 @@ if (isset($_GET['roster'])) {
 
 ?>
 <main>
-        <article>
-            <h2>Roster</h2>
+<h2>Roster</h2>
+<article id="roster">
+            
 <?php
 // Open roster csv
 $debug = false;
@@ -28,3 +29,5 @@ fclose($f);
 echo "\n</table></article></main></body></html>";
 fclose($file);
 ?>
+</article>
+</main>
