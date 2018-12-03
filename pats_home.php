@@ -4,12 +4,13 @@ include ('pats_top.php');
     <main>
         <article>
             <h2>Home</h2>
+            <header>Welcome Pats Fans!</header>
        <figure class="Homephoto">
-           <img alt="Logo" src="images/pats_logo.jpg" height='60%' width='60%'>
+           <img alt="Logo" src="images/pats_logo.jpg">
             <figcaption>source: https://wall.alphacoders.com/big.php?i=592111</figcaption>
         </figure>
    
-    <p>Welcome Patriots Fans! This is your one-stop shop for all things PATRIOTS. Here you will be able to check out the current roster of the team, shop and customize your favorite Patriots apparel, look at user-submitted images, upload comments, take a poll and so much more!</p>
+    <p>This is site is your one-stop shop for all things PATRIOTS. Here you will be able to check out the current roster of the team, shop and customize your favorite Patriots apparel, look at user-submitted images, upload comments, take a poll and so much more!</p>
    
     <p>To get started, just click on any tab you want at the top of the screen!</p>
     
