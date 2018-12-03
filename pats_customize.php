@@ -11,10 +11,8 @@ include ('pats_top.php');
 <?php
 $Name = '';
 $Number = '';
-
 $nameERROR = false;
 $numberERROR = false;
-
 $errorMsg = array();
 ?>
 
@@ -23,7 +21,6 @@ $errorMsg = array();
 
 <?php
 if(isset($_POST["btnSubmit"])) {
-
     // url for this form
     $thisURL = $domain . $phpSelf;
     
@@ -33,12 +30,9 @@ if(isset($_POST["btnSubmit"])) {
         die($msg);
     }
 }
-
 // <!-- Sanitize data --> //
-
 $Name = htmlentities($_POST['txtName'], ENT_QUOTES, 'UTF-8');
 $Number = htmlentities($_POST['txtNumber'], ENT_QUOTES, 'UTF-8');
-
 ?>
 
 
