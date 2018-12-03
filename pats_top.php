@@ -24,7 +24,11 @@ print PHP_EOL;
 include ('pats_nav.php');
 print PHP_EOL; 
 
+require_once 'lib/security.php';
 
+include_once 'lib/validation-function.php';
+
+include_once 'lib/mail-message.php';
 
 
 ?>
