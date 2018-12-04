@@ -3,16 +3,16 @@ include ('pats_top.php');
 ?>
 <!-- Pictures of stuff to buy -->
 
-<figure>
-    <img alt="Red Shirt" src="images/Red.jpg" class="Redshirt">
+<figure class="Redshirt">
+    <img alt="Red Shirt" src="images/Red.jpg" >
     <figcaption>source: https://d1wid1q8ctfefm.cloudfront.net/spree/images/attachments/000/005/218/original/FanaticsTBSlubLSTop.jpg?1536786193</figcaption>
 </figure>
-<figure>
-    <img alt="Navy Blue T Shirt" src="images/NavyBlue.jpg" class="Blueshirt">
+<figure class="Blueshirt">
+    <img alt="Navy Blue T Shirt" src="images/NavyBlue.jpg" >
     <figcaption>source: https://d1wid1q8ctfefm.cloudfront.net/spree/images/attachments/000/004/566/original/NikeCottonTeeNavy.jpg?1526653863</figcaption>
 </figure>
-<figure>
-    <img alt="Grey T Shirt" src="images/Grey.jpg" class="Greyshirt">
+<figure class="Greyshirt">
+    <img alt="Grey T Shirt" src="images/Grey.jpg" >
     <figcaption>source: https://d1wid1q8ctfefm.cloudfront.net/spree/images/attachments/000/004/722/original/NikeSlubTeeGray.jpg?1530886182</figcaption>
 </figure>
 
