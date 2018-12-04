@@ -2,6 +2,7 @@
 include ('pats_top.php');
 ?>
 <!-- Pictures of stuff to buy -->
+
 <figure>
     <img alt="Red Shirt" src="images/Red.jpg" class="Redshirt">
     <figcaption>source: https://d1wid1q8ctfefm.cloudfront.net/spree/images/attachments/000/005/218/original/FanaticsTBSlubLSTop.jpg?1536786193</figcaption>
@@ -15,14 +16,24 @@ include ('pats_top.php');
     <figcaption>source: https://d1wid1q8ctfefm.cloudfront.net/spree/images/attachments/000/004/722/original/NikeSlubTeeGray.jpg?1530886182</figcaption>
 </figure>
 
-<!-- Initialize variables -->
+<!-- Debug Setup -->
 <?php
+print '<p>Post Array:</p><pre>';
+    print_r($_POST);
+    print '</pre>';
+    
+//-- Initialize variables -->
+
 $size = 'small';
 $color = '';
 $quantity = '';
 $firstName = '';
 $lastName = '';
 $email = '';
+$chk1 = true;
+$chk2 = false;
+$chk3 = false;
+$chk4 = false;
 $sizeERROR = false;
 $colorERROR = false;
 $quantityERROR = false;
@@ -31,141 +42,213 @@ $lastNameERROR = false;
 $emailERROR = false;
 $errorMsg = array();
 $mailed = false;
-?>
+$totalChecked = 0;
 
+//<!-- SECTION: 2 Process for when the form is submitted -->
 
-<!-- Security Check -->
-
-<?php
 if (isset($_POST["btnSubmit"])) {
-    // url for this form
+    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    //
+    print PHP_EOL . '<!-- SECTION: 2a Security -->' . PHP_EOL;
+    
+    // the url for this form
     $thisURL = $domain . $phpSelf;
-
+    
     if (!securityCheck($thisURL)) {
-        $msg = '<p>Sorry, you cannot access this page.</p>';
-        $msg .= '<p>Security breach reported.</p>';
+        $msg = '<p>Sorry you cannot access this page.</p>';
+        $msg.= '<p>Security breach detected and reported.</p>';
         die($msg);
     }
-}
-// <!-- Sanitize data --> //
-$size = htmlentities($_POST['lstSize'], ENT_QUOTES, 'UTF-8');
-$color = htmlentities($_POST['radColor'], ENT_QUOTES, 'UTF-8');
-$quantity = htmlentities($_POST['chkQuantity'], ENT_QUOTES, 'UTF-8');
-$firstName = htmlentities($_POST['txtFirstName'], ENT_QUOTES, 'UTF-8');
-$lastName = htmlentities($_POST['txtlastName'], ENT_QUOTES, 'UTF-8');
-?>
 
 
-<!-- validate data -->
-<?php
-if ($size == '') {
-    $errorMsg[] = 'Please choose a size';
-    $sizeERROR = true;
-}
-if ($color != 'Red' AND $color != 'Navy Blue' AND $color != 'Grey') {
-    $errorMsg[] = 'Please select your color';
-    $colorERROR = true;
-}
+    // <!-- Sanitize data --> //
+    $size = htmlentities($_POST['lstSize'], ENT_QUOTES, 'UTF-8');
+    $color = htmlentities($_POST['radColor'], ENT_QUOTES, 'UTF-8');
+    
+    if (isset($_POST["chk1"])) {
+    $chk1 = true;
+    $totalChecked++;
+    } else {
+    $chk1 = false;
+    }
+    if (isset($_POST["chk2"])) {
+    $chk2 = true;
+    $totalChecked++;
+    } else {
+    $chk2 = false;
+    }
+    if (isset($_POST["chk3"])) {
+    $chk3 = true;
+    $totalChecked++;
+    } else {
+    $chk3 = false;
+    }
+    if (isset($_POST["chk4"])) {
+    $chk4 = true;
+    $totalChecked++;
+    } else {
+    $chk4 = false;
+    }
+    
+    $firstName = htmlentities($_POST['txtfirstName'], ENT_QUOTES, 'UTF-8');
+    $lastName = htmlentities($_POST['txtlastName'], ENT_QUOTES, 'UTF-8');
+    $email = filter_var($_POST["txtEmail"], FILTER_SANITIZE_EMAIL);
+    
 
-if ($quantity == '') {
-    $errorMsg[] = 'Please choose the quantity';
-    $quantityERROR = true;
-}
-if ($firstName == "") {
-    $errorMsg[] = "Please enter your first name";
-    $firstNameERROR = true;
-} elseif (!verifyAlphaNum($firstName)) {
-    $errorMsg[] = "Your first name has extra characters";
-    $firstNameERROR = true;
-}
 
-if ($lastName == "") {
-    $errorMsg[] = "Please enter your first name";
-    $lastNameERROR = true;
-} elseif (!verifyAlphaNum($lastName)) {
-    $errorMsg[] = "Your first name has extra characters";
-    $lastNameERROR = true;
-}
+//<!-- validate data -->
 
-if ($email == "") {
-    $errorMsg[] = 'Please enter your email address';
-    $emailERROR = true;
-} elseif (!verifyEmail($email)) {
-    $errorMsg[] = 'Your email address appears to be incorrect.';
-    $emailERROR = true;
-}
-?>
-
-<!-- if form is valid, save the data -->    
-<?php
-if (!$errorMsg) {
-    if ($debug) {
-        print '<p>Form is valid.</p>';
+    if ($size == '') {
+        $errorMsg[] = 'Please choose a size';
+        $sizeERROR = true;
+    }
+    if ($color != 'Red' AND $color != 'Navy Blue' AND $color != 'Grey') {
+        $errorMsg[] = 'Please select your color';
+        $colorERROR = true;
     }
 
-    // array used to hold form values that will be saved to csv
-    $dataRecord = array();
+    if ($totalChecked <1 or $totalChecked >4){
+        $errorMsg[] = "Please choose the quantity";
+        $quantityERROR[] = true;             
+    }
+    if ($firstName == '') {
+        $errorMsg[] = "Please enter your first name";
+        $firstNameERROR = true;
+    } elseif (!verifyAlphaNum($firstName)) {
+        $errorMsg[] = "Your first name has extra characters";
+        $firstNameERROR = true;
+    }
 
-    // assign values to dataRecord array
-    $dataRecord[] = $size;
-    $dataRecord[] = $color;
-    $dataRecord[] = $quantity;
-    $dataRecord[] = $firstName;
-    $dataRecord[] = $lastName;
-    $dataRecord[] = $email;
+    if ($lastName == '') {
+        $errorMsg[] = "Please enter your last name";
+        $lastNameERROR = true;
+    } elseif (!verifyAlphaNum($lastName)) {
+        $errorMsg[] = "Your last name has extra characters";
+        $lastNameERROR = true;
+    }
 
-    //  setup csv file
-    $myFolder = 'data/';
-    $myFileName = 'shop';
-    $fileExt = '.csv';
-    $filename = $myFolder . $myFileName . $fileExt;
+    if ($email == "") {
+        $errorMsg[] = 'Please enter your email address';
+        $emailERROR = true;
+    } elseif (!verifyEmail($email)) {
+        $errorMsg[] = 'Your email address appears to be incorrect.';
+        $emailERROR = true;
+    }
+    ?>
 
-    if ($debug)
-        print PHP_EOL . '<p>filename is ' . $filename;
-
-    // open file to append
-    $file = fopen($filename, 'a');
-
-    // write info from form
-    fputcsv($file, $dataRecord);
-
-    // close file
-    fclose($file);
-    // create order confirmation and mail to user -->   
-    $message = '<h2> Your order confirmation </h2>';
-
-    foreach ($_POST as $htmlName => $value) {
-
-        $message .= '<p>';
-        $camelCase = preg_split('/(?=[A-Z])/', substr($htmlName, 3));
-
-        foreach ($camelCase as $oneWord) {
-            $message .= $oneWord . ' ';
+<!-- if form is valid, save the data, else issue error -->    
+    <?php
+    if (!$errorMsg) {
+        if ($debug) {
+            print '<p>Form is valid.</p>';
         }
+        
+        print PHP_EOL . '<!-- SECTION: Save Data -->' . PHP_EOL;
+        // array used to hold form values that will be saved to csv
+        $dataRecord = array();
 
-        $message .= ' = ' . htmlentities($value, ENT_QUOTES, 'UTF-8') . '</p>';
+        // assign values to dataRecord array
+        $dataRecord[] = $size;
+        $dataRecord[] = $color;
+        $dataRecord[] = $chk1;
+        $dataRecord[] = $chk2;
+        $dataRecord[] = $chk3;
+        $dataRecord[] = $chk4;
+        $dataRecord[] = $firstName;
+        $dataRecord[] = $lastName;
+        $dataRecord[] = $email;
+
+        //  setup csv file
+        $myFolder = 'data/';
+        $myFileName = 'shop';
+        $fileExt = '.csv';
+        $filename = $myFolder . $myFileName . $fileExt;
+
+        if ($debug) print PHP_EOL . '<p>filename is ' . $filename;
+
+        // open file to append
+        $file = fopen($filename, 'a');
+
+        // write info from form
+        fputcsv($file, $dataRecord);
+
+        // close file
+        fclose($file);
+    print PHP_EOL .  '// create order confirmation and mail to user --> ' . PHP_EOL;  
+        $message = '<h2> Your order confirmation </h2>';
+
+        foreach ($_POST as $htmlName => $value) {
+
+            $message .= '<p>';
+            $camelCase = preg_split('/(?=[A-Z])/', substr($htmlName, 3));
+            
+            foreach ($camelCase as $oneWord) {
+                $message .= $oneWord . ' ';
+            }
+
+            $message .= ' = ' . htmlentities($value, ENT_QUOTES, 'UTF-8') . '</p>';
+        }
+        
+        print PHP_EOL .  ' send email confirmation --> ' . PHP_EOL;
+        $to = $email;
+        $cc = '';
+        $bcc = '';
+
+        $from = '<PatriotsPlaceClub@Patriots.com>';
+    //    
+    //    
+        $subject = 'Order Confirmation from Patriots Place';
+    //    
+        $mailed = sendMail($to, $cc, $bcc, $from, $subject, $message);
     }
-    $to = $email;
-    $cc = '';
-    $bcc = '';
-
-    $from = '<PatriotsPlaceClub@Patriots.com>';
-//    
-//    
-    $subject = 'Order Confirmation from Patriots Place';
-//    
-    $mailed = sendMail($to, $cc, $bcc, $from, $subject, $message);
 }
-//   
-?>
 
-<!-- Form to choose color(list), size(radio), quantity(Num input) -->
+// display form
+    if (isset($_POST["btnSubmit"]) AND empty($errorMsg)) { // closing of if marked with: end body submit
+        print '<h2>Thank you for ordering from Patriots Place Club</h2>';
+    
+        print '<p>For your records a copy of this data has ';
+        if (!$mailed) {    
+            print "not ";         
+        }
+    
+        print 'been sent:</p>';
+        print '<p>To: ' . $email . '</p>';
+    
+        print $message;
+        } else {       
+     
+        print '<h2>Order Confirmation</h2>';
+        }
+     
+        //####################################
+        //
+        print PHP_EOL . '<!-- SECTION Error Messages -->' . PHP_EOL;
+        //
+        // display error messages 
+   
+       if ($errorMsg) {    
+           print '<div id="errors">' . PHP_EOL;
+           print '<h2>Your form has the following mistakes that need to be fixed.</h2>' . PHP_EOL;
+           print '<ol>' . PHP_EOL;
+           foreach ($errorMsg as $err) {
+               print '<li>' . $err . '</li>' . PHP_EOL;       
+           }
+            print '</ol>' . PHP_EOL;
+            print '</div>' . PHP_EOL;
+       }
+        //####################################
+        //
+
+print PHP_EOL . '<!--Form to choose color(list), size(radio), quantity(Num input) -->' . PHP_EOL;
+?>
 
 <main>
     <article>
         <form action="<?php print $phpSelf; ?>"
               id="frmOrder"
-              method="post">
+              method="post"
+              class="shop">
 
             <fieldset class='order'>
                 <legend>Order Information</legend>
@@ -259,7 +342,7 @@ if (!$errorMsg) {
                     <p>
                         <label class='required' for="txtfirstName">First name</label>
                         <input
-                        <?php if ($emailERROR) print 'class="mistake"'; ?>
+                        <?php if ($firstNameERROR) print 'class="mistake"'; ?>
                             id="txtfirstName"
                             maxlength="50"
                             name="txtfirstName"
