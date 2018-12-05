@@ -1,20 +1,28 @@
-<?php
-include ('pats_top.php');
+<?php 
+include ('pats_top.php'); 
 ?>
-<!-- Pictures of stuff to buy -->
-<figure>
-    <img alt="Custom Jersey" src="images/customjersey.jpeg" class="CustomJersey">
-            <figcaption>source: https://www.nflshop.com/new-england-patriots/nike-mens-new-england-patriots-customized-game-away-jersey/t-70821474+p-247892674844+z-8-1351497844</figcaption>
-</figure>
+    <main>
+        <article id="History">
+            <h2>History</h2>
+            <header>Welcome Pats Fans!</header>
+       
+    
+    <p>The New England Patriots football team was first established in 1960 when they joined the NFL franchise. During this time, they were known as the Boston Patriots, located in Boston Massachusetts. The Boston Patriots initially played their home games at Boston University's Nickerson Field. The switch of stadiums from Nickerson Field to Foxborough Stadium (now known as Gillette Stadium which opened in 2002) took place in 1971 when their name changed to the New England Patriots. The New England Patriots was not the initial name they were going to use. After being known as the Boston Patriots, their name was set to change to the Bay State Patriots, but this name was shot down by a lot of fans. The name change to The New England Patriots occurred in 1971. During the 1960 season, the Boston Patriots finished their season with a total of five wins and nine losses. The head coach of this team was Lou Saban.  </p>
+    
+    <p>It is no secret that the New England Patriots are one of the best teams in the NFL. The Patriots have had 59 seasons so far to date with the first one beginning in 1960. The team has won five Super Bowl titles with 10 appearances. The titles were earned in years: 2002, 2004, 2005, 2015, and 2017. On top of that, the team has won ten AFC games. The first ever Super Bowl championship game took place in 1967 before the Patriots were even apart of the National Football League. The Patriots currently hold the record for most consecutive appearances in the Super Bowl Championship game with a total running on 9 seasons.</p>
+    
+    <p>In 2000, the New England Patriots received a new coach Bill Belichick. Belichick lead his team to multiple titles, and this was one of best moves the franchise could have made. Bill is not only a great coach, but he is smart with his plays as well. </p>
+    
+    <p>The team was first owned by Billy Sullivan in 1960-1987. After two more changes, Robert Kraft owned the Patriots. This took place in 1994, and he is still the owner to this day. In 1993, the team announces their mascot as Pat Patriot. This is still the mascot to this day, as well!</p>
+    
+    <p>Tom Brady is a known figure when thinking about the New England Patriots. Brady is the starting quarterback and very well is one of the best players the Patriots have ever had. Brady was drafted to the NFL in 2000 to the Patriots during the sixth round. Brady was not only a football player throughout grade school, however. Brady excelled at baseball and was even offered to play pro. He turned that opportunity down to go to college in Michigan. During Brady’s first NFL appearance, he was not the star. He was the backup quarterback. After the starting quarterback was injured, Brady got his chance, and he shined. Brady’s record is incredible. He has won five Super Bowl championships with the New England Patriots and appeared in eight games. </p>
+    
+    <p>The New England Patriots have a lot of history behind their team, and it is evident they are coached extremely well. The 2018-2019 season will be one to remember!</p>
+    
+    <p><small>Image source: https://www.bostonglobe.com/sports/patriots/2018/07/23/finn/qWFSBU9zOzy6mGDx8oTb0M/story.html</small><p>
+        </article>
+        <iframe width="560" height="315" class= "video" src="https://www.youtube.com/embed/If0cBFokr00" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </main>
+</html>
 
-
-<h2>Customization!</h2>
-<h3>In 2019 we will be introducing customization!</h3>
-
-<p>Love the New England Patriots as much as we do? Well than you're in luck. In 2019 we will be introducing customization. WE will firsrt be launching the famous Pats jersey. You will be able to add your own name to the back of the jersey and which ever number of your choosing! Once this jersey launches, we will be creating a whole page dedicated to customizing. This will include: t shirts, pants, sweatshirts, jackets, hats, and so much more. These customizable shirts are so easy to order! </p>
-
-<p>Starting January 1st 2019 at 12:01 am, head over to the custom page on Patriots Place site and start your desinging! There are limited quantities for our jeseys, so make sure to be on our website as quick as possible! Once the last shipments of jerseys are sent out, we will start to upload the rest of our customizable apparel. We want to make our website as unique as possible. We strive to create aspects that cater to all of our fans. With that being said, we want to make sure we are doing our best. Always leave us feedback whenever you can. We just started our website in November of 2018, and are very proud of our progress. We are constantly looking to help our fans, and enjoy doing just that. When you go to a Patriots game, or a Patriot themed event, make sure to wear your custom apparel, everyone will be askig where you purchased it from. Do not hesitate to send in pictures of you rocking your customized apparel to the Patriots Place website , you just might be featured on our home page!</p>
-
-<p>We have big plans for this website, and after we have launched all of our customizable apparel for purchasing, we will be adding accessories as well! All of our fans have wondered what our next step is, and this is our big announcement! You will be able to customize necklaces, earrings, key chains, mugs, dog collars, and anything else you want! To help us help you, send an email to us and suggest what items you want to see added to our shop. We are always looking for feeback, and we love receiving comments from our loyal fans. 2019 will be a big year for Patriots Place, and we are so excited. We will be holding contests for our #1 fans, and even doing giveaways to help promote our site! As far as New England Patriots games are concerned, we will be holding a contest once a month and giving out two tickets for a home game at Gillette Stadium! You do not want to miss out on this opportunity, so make sure to stay tuned and check our website weekly for updates! Our website is constantly being updated, changed, and improved. The customization aspect was a feature one of our fans asked to create, so we did just that</p>
-
-<p>Our Patriots fans/ customers are very important to us, so giving us information on how to improve and suggestions you might have are always helpful! Happy shopping and do not forget to check out Patriots Place website for weekly information and so much more!</p>
+   
