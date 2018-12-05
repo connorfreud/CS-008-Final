@@ -6,7 +6,7 @@ include ('pats_top.php');
             <h2>History</h2>
             <header>Welcome Pats Fans!</header>
        
-   
+    
     <p>The New England Patriots football team was first established in 1960 when they joined the NFL franchise. During this time, they were known as the Boston Patriots, located in Boston Massachusetts. The Boston Patriots initially played their home games at Boston University's Nickerson Field. The switch of stadiums from Nickerson Field to Foxborough Stadium (now known as Gillette Stadium which opened in 2002) took place in 1971 when their name changed to the New England Patriots. The New England Patriots was not the initial name they were going to use. After being known as the Boston Patriots, their name was set to change to the Bay State Patriots, but this name was shot down by a lot of fans. The name change to The New England Patriots occurred in 1971. During the 1960 season, the Boston Patriots finished their season with a total of five wins and nine losses. The head coach of this team was Lou Saban.  </p>
     
     <p>It is no secret that the New England Patriots are one of the best teams in the NFL. The Patriots have had 59 seasons so far to date with the first one beginning in 1960. The team has won five Super Bowl titles with 10 appearances. The titles were earned in years: 2002, 2004, 2005, 2015, and 2017. On top of that, the team has won ten AFC games. The first ever Super Bowl championship game took place in 1967 before the Patriots were even apart of the National Football League. The Patriots currently hold the record for most consecutive appearances in the Super Bowl Championship game with a total running on 9 seasons.</p>
