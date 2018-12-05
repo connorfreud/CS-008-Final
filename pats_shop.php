@@ -18,9 +18,6 @@ include ('pats_top.php');
 
 <!-- Debug Setup -->
 <?php
-print '<p>Post Array:</p><pre>';
-    print_r($_POST);
-    print '</pre>';
     
 //-- Initialize variables -->
 
@@ -216,9 +213,6 @@ if (isset($_POST["btnSubmit"])) {
         print '<p>To: ' . $email . '</p>';
     
         print $message;
-        } else {       
-     
-        print '<h2>Order Confirmation</h2>';
         }
      
         //####################################
