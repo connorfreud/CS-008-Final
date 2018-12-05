@@ -65,18 +65,18 @@ img{
     max-width: 100%;
 }
 .Redshirt {
-    width: 20%;
+    width: 25%;
     float: left;
     
 }
 
 .Blueshirt {
-    width: 20%;
+    width: 25%;
     float: left;
 }
 
 .Greyshirt {
-    width: 20%;
+    width: 25%;
     float: left;
 }
 
@@ -92,7 +92,7 @@ table tr td{
 }
 
 .mistake {
-    color: red;
+    color: white;
     background-color: red;
     border: dashed yellow;
 }
@@ -121,5 +121,11 @@ table tr td{
 }
 
 .shop{
-    float: clear;
+    float: none;
+}
+
+#slideshow img{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
