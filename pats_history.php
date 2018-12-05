@@ -20,7 +20,7 @@ include ('pats_top.php');
     <p>The New England Patriots have a lot of history behind their team, and it is evident they are coached extremely well. The 2018-2019 season will be one to remember!</p>
     
         </article>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/2wTo9TKfMCU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" class= "video" src="https://www.youtube.com/embed/If0cBFokr00" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </main>
 </html>
 
