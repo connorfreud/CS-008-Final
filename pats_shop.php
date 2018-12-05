@@ -171,7 +171,7 @@ if (isset($_POST["btnSubmit"])) {
 
         // close file
         fclose($file);
-    print PHP_EOL .  '// create order confirmation and mail to user --> ' . PHP_EOL;  
+
         $message = '<h2> Your order confirmation </h2>';
 
         foreach ($_POST as $htmlName => $value) {
@@ -186,12 +186,12 @@ if (isset($_POST["btnSubmit"])) {
             $message .= ' = ' . htmlentities($value, ENT_QUOTES, 'UTF-8') . '</p>';
         }
         
-        print PHP_EOL .  ' send email confirmation --> ' . PHP_EOL;
+       // print PHP_EOL .  ' send email confirmation --> ' . PHP_EOL;
         $to = $email;
         $cc = '';
         $bcc = '';
 
-        $from = '<PatriotsPlaceClub@Patriots.com>';
+        $from = '<Connor.Freud@uvm.edu>';
     //    
     //    
         $subject = 'Order Confirmation from Patriots Place';
@@ -209,8 +209,8 @@ if (isset($_POST["btnSubmit"])) {
             print "not ";         
         }
     
-        print 'been sent:</p>';
-        print '<p>To: ' . $email . '</p>';
+        print 'been sent to:</p>';
+        print '<p>' . $email . '</p>';
     
         print $message;
         }
