@@ -22,7 +22,23 @@ include ('pats_header.php');
 print PHP_EOL;
 
 include ('pats_nav.php');
-print PHP_EOL; 
+print PHP_EOL;
+
+
+
+$domain = '//';     
+        
+   $server = htmlentities($_SERVER['SERVER_NAME'], ENT_QUOTES, 'UTF-8');     
+        
+   $domain .= $server;     
+        
+    if($debug) {
+        print '<p> Self: ' . $phpSelf;
+        print '<p>domain: ' . $domain;
+        print '<p>Path Parts<pre>';
+        print_r($path_parts);
+        print '</pre></p>';
+    }
 
 require_once 'lib/security.php';
 
