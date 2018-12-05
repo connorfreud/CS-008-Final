@@ -13,7 +13,7 @@ nav li{
     list-style-type: none;
     width: 5em;
     padding: 2em;
-    color: white;
+    color: #ffffff;
     
 }
 
@@ -22,12 +22,20 @@ nav {
     text-align: center;
     font-weight: bolder;
     border-radius: 25px;
-    color: white;
+    color: #ffffff;
     
 }
 nav a:hover{
-    background-color: #c7f9f9;
+    background-color: #00498e;
+    
 }
+
+nav a {
+    color: #ffffff;
+}
+
+
+
 p {
     font-family: "Lucida Sans Unicode", "Lucida Grande", serif;
 }
