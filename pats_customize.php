@@ -7,135 +7,14 @@ include ('pats_top.php');
             <figcaption>source: https://www.nflshop.com/new-england-patriots/nike-mens-new-england-patriots-customized-game-away-jersey/t-70821474+p-247892674844+z-8-1351497844</figcaption>
 </figure>
 
-<!-- Initialize variables -->
-<?php
-$Name = '';
-$Number = '';
-$nameERROR = false;
-$numberERROR = false;
-$errorMsg = array();
-?>
 
+<h2>Customization!</h2>
+<h3>In 2019 we will be introducing customization!</h3>
 
-<!-- Security Check -->
+<p>Love the New England Patriots as much as we do? Well than you're in luck. In 2019 we will be introducing customization. WE will firsrt be launching the famous Pats jersey. You will be able to add your own name to the back of the jersey and which ever number of your choosing! Once this jersey launches, we will be creating a whole page dedicated to customizing. This will include: t shirts, pants, sweatshirts, jackets, hats, and so much more. These customizable shirts are so easy to order! </p>
 
-<?php
-if(isset($_POST["btnSubmit"])) {
-    // url for this form
-    $thisURL = $domain . $phpSelf;
-    
-    if(!securityCheck($thisURL)){
-        $msg = '<p>Sorry, you cannot access this page.</p>';
-        $msg.= '<p>Security breach reported.</p>';
-        die($msg);
-    }
-}
-// <!-- Sanitize data --> //
-$Name = htmlentities($_POST['txtName'], ENT_QUOTES, 'UTF-8');
-$Number = htmlentities($_POST['txtNumber'], ENT_QUOTES, 'UTF-8');
-?>
+<p>Starting January 1st 2019 at 12:01 am, head over to the custom page on Patriots Place site and start your desinging! There are limited quantities for our jeseys, so make sure to be on our website as quick as possible! Once the last shipments of jerseys are sent out, we will start to upload the rest of our customizable apparel. We want to make our website as unique as possible. We strive to create aspects that cater to all of our fans. With that being said, we want to make sure we are doing our best. Always leave us feedback whenever you can. We just started our website in November of 2018, and are very proud of our progress. We are constantly looking to help our fans, and enjoy doing just that. When you go to a Patriots game, or a Patriot themed event, make sure to wear your custom apparel, everyone will be askig where you purchased it from. Do not hesitate to send in pictures of you rocking your customized apparel to the Patriots Place website , you just might be featured on our home page!</p>
 
+<p>We have big plans for this website, and after we have launched all of our customizable apparel for purchasing, we will be adding accessories as well! All of our fans have wondered what our next step is, and this is our big announcement! You will be able to customize necklaces, earrings, key chains, mugs, dog collars, and anything else you want! To help us help you, send an email to us and suggest what items you want to see added to our shop. We are always looking for feeback, and we love receiving comments from our loyal fans. 2019 will be a big year for Patriots Place, and we are so excited. We will be holding contests for our #1 fans, and even doing giveaways to help promote our site! As far as New England Patriots games are concerned, we will be holding a contest once a month and giving out two tickets for a home game at Gillette Stadium! You do not want to miss out on this opportunity, so make sure to stay tuned and check our website weekly for updates! Our website is constantly being updated, changed, and improved. The customization aspect was a feature one of our fans asked to create, so we did just that</p>
 
-<!-- validate data -->
-<?php
-    if ($Name == "") {
-        $errorMsg[] = "Please enter the name on your jersey";
-        $firstNameERROR = true;
-    } elseif (!verifyAlphaNum($Name)) {
-        $errorMsg[] = "Your jersey name may not contain special characters";
-        $nameERROR = true;
-    }
-    
-    if ($Number == "") {
-        $errorMsg[] = "Please enter your jersey number";
-        $numberERROR = true;
-    } elseif (!is_int($Number)) {
-        $errorMsg[] = "Pleas enter your jersey number";
-        $numberERROR = true;
-    }
-    
-        ?>
-
-<!-- if form is valid, save the data -->    
-<?php
-if (!$errorMsg){
-        if ($debug) {
-                print '<p>Form is valid.</p>';
-        } 
-}
-    
-    // array used to hold form values that will be saved to csv
-    $dataRecord = array();
-    
-    // assign values to dataRecord array
-    $dataRecord[] = $Name;
-    $dataRecord[] = $Number;
-    
-    
-    //  setup csv file
-    $myFolder = 'data/';
-    $myFileName = 'custom';
-    $fileExt = '.csv';
-    $filename = $myFolder . $myFileName . $fileExt;
-    
-    if ($debug) print PHP_EOL . '<p>filename is ' . $filename;
-    
-    // open file to append
-    $file = fopen($filename, 'a');
-    
-    // write info from form
-    fputcsv($file, $dataRecord);
-    
-    // close file
-    fclose($file);
-   ?>
-
-<!-- Input custom name and number -->
-
-<main>
-    <article>
-                    <form action="<?php print $phpSelf;?>"
-                           id="frmOrder"
-                           method="post">
-
-                        <fieldset class = text-field>
-                             <p>
-                                 <label class='required' for="txtName">Name</label>
-                                 <input
-                                     <?php if ($Name) print 'class="mistake"'; ?>
-                                     id="txtName"
-                                     maxlength="50"
-                                     name="txtName"
-                                     onfocus="this.select()"
-                                     placeholder="Enter the name on your jersey"
-                                     tabindex="100"
-                                     type="text"
-                                     value="<?php print $Name; ?>"
-                                   >
-                             </p>
-                        </fieldset>
-                        
-                        <fieldset class = text-field>
-                             <p>
-                                 <label class='required' for="txtNumber">Number</label>
-                                 <input
-                                     <?php if ($numberERROR) print 'class="mistake"'; ?>
-                                     id="txtNumber"
-                                     maxlength="2"
-                                     name="txtNumber"
-                                     onfocus="this.select()"
-                                     placeholder="Enter a 2 digit number"
-                                     tabindex="101"
-                                     type="text"
-                                     value="<?php print $Number; ?>"
-                                   >
-                             </p>
-                        </fieldset>
-                        
-                   <fieldset class="buttons">
-                             <input class="button" id="btnSubmit" name="btnSubmit" tabindex="500" type="submit" value="Submit Order" >
-                         </fieldset>
-                    </form>
-         </article>   
-</main>
-</html>
+<p>Our Patriots fans/ customers are very important to us, so giving us information on how to improve and suggestions you might have are always helpful! Happy shopping and do not forget to check out Patriots Place website for weekly information and so much more!</p>
