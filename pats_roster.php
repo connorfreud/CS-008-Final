@@ -7,7 +7,7 @@ if (isset($_GET['roster'])) {
 
 ?>
 <main>
-<h2>Roster</h2>
+<h2>2018-2019 Roster</h2>
 <article id="roster">
             
 <?php
@@ -26,8 +26,8 @@ while (($line = fgetcsv($file)) !== false) {
         echo "</tr>\n";
 }
 fclose($f);
-echo "\n</table></article></main></body></html>";
+echo "\n</table></article></main></body>";
 fclose($file);
 ?>
-</article>
-</main>
+</html>
+
